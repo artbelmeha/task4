@@ -7,14 +7,9 @@ import com.syndicate.deployment.annotations.lambda.LambdaHandler;
 
 import com.amazonaws.services.lambda.runtime.events.SQSEvent;
 import com.amazonaws.services.lambda.runtime.events.SQSEvent.SQSMessage;
-import com.syndicate.deployment.annotations.lambda.LambdaLayer;
-import com.syndicate.deployment.model.ArtifactExtension;
-import com.syndicate.deployment.model.DeploymentRuntime;
 
 @LambdaHandler(lambdaName = "sqs_handler",
-	roleName = "sqs_handler-role",
-	isPublishVersion = true,
-	aliasName = "${lambdas_alias_name}"
+	roleName = "sqs_handler-role"
 )
 @SqsTriggerEventSource(targetQueue = "async_queue", batchSize = 1)
 public class SqsHandler implements RequestHandler<SQSEvent, Void> {
