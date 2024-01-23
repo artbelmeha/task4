@@ -32,7 +32,22 @@
   },
   "async_queue": {
     "resource_type": "sqs_queue",
-    "target_queue" : "async_queue",
+    "target_queue": "async_queue",
     "visibility_timeout": 300
+  },
+  "sns_handler-role": {
+    "predefined_policies": [],
+    "principal_service": "lambda",
+    "custom_policies": [
+      "lambda-basic-execution"
+    ],
+    "resource_type": "iam_role",
+    "allowed_accounts": [
+      "${account_id}"
+    ]
+  },
+  "sns_topic": {
+    "resource_type": "sns_topic",
+    "topic_name": "lambda_topic"
   }
 }
