@@ -15,7 +15,9 @@
             "ssm:PutParameter",
             "ssm:GetParameter",
             "kms:Decrypt",
-            "sqs:SendMessage",
+            "sqs:ReceiveMessage",
+            "sqs:DeleteMessage",
+            "sqs:GetQueueAttributes"
           ],
           "Effect": "Allow",
           "Resource": "*"
@@ -36,11 +38,9 @@
       "${account_id}"
     ]
   },
-  "sqs": {
-    "mySQSQueue": {
-      "deploy_name": "async_queue",
-      "messages_retention_period": 86400,
-      "delay": 0
-    }
+  "async_queue": {
+    "resource_type": "sqs_queue",
+    "target_queue" : "async_queue",
+    "visibility_timeout": 300
   }
 }
