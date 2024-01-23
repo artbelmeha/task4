@@ -46,7 +46,7 @@
       "${account_id}"
     ]
   },
-  "sns_topic": {
+  "lambda_topic": {
     "resource_type": "sns_topic",
     "topic_name": "lambda_topic"
   }
