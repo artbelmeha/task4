@@ -7,9 +7,7 @@ import com.syndicate.deployment.annotations.events.SnsEventSource;
 import com.syndicate.deployment.annotations.lambda.LambdaHandler;
 
 @LambdaHandler(lambdaName = "sns_handler",
-	roleName = "sns_handler-role",
-	isPublishVersion = true,
-	aliasName = "${lambdas_alias_name}"
+	roleName = "sns_handler-role"
 )
 @SnsEventSource(targetTopic = "sns_topic")
 public class SnsHandler implements RequestHandler<SNSEvent, Void> {
